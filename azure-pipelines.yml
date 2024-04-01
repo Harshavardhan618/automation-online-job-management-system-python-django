@@ -27,10 +27,12 @@ stages:
             $pythonInstallerPath = "$env:TEMP\python-3.9.0-amd64.exe"
             Invoke-WebRequest -Uri $pythonInstallerUrl -OutFile $pythonInstallerPath
 
+
     - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
-        dockerfile: './Dockerfile'
-        tags: |
-          $(tag)
+         containerRegistry: 'Docker'
+         repository: 'harshilpa/'
+         command: 'buildAndPush'
+         Dockerfile: '**/Dockerfile'
+         tags: '$(tag)'
+
