@@ -17,19 +17,13 @@ stages:
     displayName: Build
     pool:
      name: Default
-    steps:
-    - task: PowerShell@2
-      inputs:
-       targetType: 'inline'
-       script: |
-            steps:
-              - task: UsePythonVersion@0
-                inputs:
-                  versionSpec: '$(python.version)'
-                   displayName: 'Use Python $(python.version)'
-                
 
-                   script: 'pip install pytest pytest-azurepipelines ; pytest unit_test/'
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+          versionSpec: '3.x'
+          addToPath: true
+          architecture: 'x64'
 
     - task: Docker@2
       displayName: Build an image
