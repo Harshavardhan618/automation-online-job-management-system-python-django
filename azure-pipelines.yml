@@ -22,19 +22,15 @@ stages:
       inputs:
        targetType: 'inline'
        script: |
-         steps:
-          - task: PowerShell@2
-            displayName: 'Install Python'
-           inputs:
-             targetType: 'inline'
-              script: |
-                # Download Python installer
-                $pythonInstallerUrl = 'https://www.python.org/ftp/python/3.9.0/python-3.9.0-amd64.exe'
-                $pythonInstallerPath = "$env:TEMP\python-3.9.0-amd64.exe"
-                Invoke-WebRequest -Uri $pythonInstallerUrl -OutFile $pythonInstallerPath
-      
-                # Install Python
-                Start-Process -FilePath $pythonInstallerPath -ArgumentList '/quiet', 'InstallAllUsers=1', 'PrependPath=1' -Wait
+            steps:
+              - task: UsePythonVersion@0
+                inputs:
+                  versionSpec: '$(python.version)'
+                   displayName: 'Use Python $(python.version)'
+                
+
+                   script: 'pip install pytest pytest-azurepipelines ; pytest unit_test/'
+
     - task: Docker@2
       displayName: Build an image
       inputs:
