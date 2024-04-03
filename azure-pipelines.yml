@@ -36,3 +36,5 @@ stages:
          Dockerfile: '**/Dockerfile'
          tags: '$(tag)'
 
+    - task: AzureWebApp@1 
+
