@@ -36,5 +36,11 @@ stages:
          Dockerfile: '**/Dockerfile'
          tags: '$(tag)'
 
-    - task: AzureWebApp@1 
+    - task: AzureWebApp@1
+      inputs:
+       azureSubscription: 'Free Trial(81ed48f9-af0f-453f-936b-879b2f01dfb1)'
+       appType: 'webApp'
+       appName: 'AZ-Django'
+       package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+       deploymentMethod: 'auto'
 
