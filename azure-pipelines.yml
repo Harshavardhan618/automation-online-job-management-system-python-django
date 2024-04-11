@@ -3,8 +3,14 @@
 trigger:
 - main
 
+pool:
+  name: Default
+  demands:
+   - agent.name -equals AZ_Harsh
+
+
 resources:
-- repo: self
+ - repo: self
 
 variables:
   tag: '$(Build.BuildId)'
