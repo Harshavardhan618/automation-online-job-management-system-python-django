@@ -35,12 +35,17 @@ stages:
          command: 'buildAndPush'
          Dockerfile: '**/Dockerfile'
          tags: '$(tag)'
-
+- stage : Deployment 
+  displayName: Deployment of Django App
+  jobs:
+  - job: Deployment
+    steps:
     - task: AzureWebApp@1
       inputs:
         azureSubscription: 'AZ-Django'
         appType: 'webApp'
-        appName: 'AZ-Django'
+        appName: 'djangoauto'
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
         deploymentMethod: 'auto'
+
 
