@@ -44,10 +44,9 @@ stages:
 
     - task: PublishBuildArtifacts@1
       inputs:
-         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-         ArtifactName: 'drop'
-         publishLocation: 'Container'
-         StoreAsTar: true
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
 
 
     - task: AzureWebApp@1
