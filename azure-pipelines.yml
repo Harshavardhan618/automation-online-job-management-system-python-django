@@ -38,7 +38,7 @@ stages:
 
     - task: AzureWebApp@1
       inputs:
-        azureSubscription: 'Free Trial(1)(81ed48f9-af0f-453f-936b-879b2f01dfb1)'
+        azureSubscription: 'AZ-Django'
         appType: 'webApp'
         appName: 'AZ-Django'
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
