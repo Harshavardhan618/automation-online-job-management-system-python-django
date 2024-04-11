@@ -4,7 +4,7 @@ trigger:
 - main
 
 pool:
-  name: My agent
+  name: Default
 
 
 resources:
