@@ -34,11 +34,11 @@ stages:
 
     - task: Docker@2
       inputs:
-         containerRegistry: 'Docker'
-         repository: 'harshilpa/automation-online-job-management-system-python-django'
-         command: 'buildAndPush'
-         Dockerfile: '**/Dockerfile'
-         tags: '$(tag)'
+        containerRegistry: 'DockerConatinerRegistry'
+        repository: 'harshilpa/automation-online-job-management-system-python-django'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
 
     - task: PublishBuildArtifacts@1
       inputs:
