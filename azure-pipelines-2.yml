@@ -41,3 +41,9 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
+    
+    - task: AzureWebAppContainer@1
+      inputs:
+       azureSubscription: 'Free Trial(81ed48f9-af0f-453f-936b-879b2f01dfb1)'
+       appName: 'DjangoAuto'
+       containers: 'harshdjango.azurecr.io/harshilpa/automation-online-job-management-system-python-django'
