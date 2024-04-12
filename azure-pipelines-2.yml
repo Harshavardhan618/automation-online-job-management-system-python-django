@@ -12,7 +12,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '8e9ce3d9-2628-4afd-aa90-d3819c9befba'
   imageRepository: 'harshavardhanautomationonlinejobmanagementsystempy'
-  containerRegistry: 'dockerconatinerregistry.azurecr.io'
+  containerRegistry: 'dockerconatinerregistry.azurecr.io' 
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
